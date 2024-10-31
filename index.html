@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="file" id="gifInput" />
+    <input type="number" id="rows" placeholder="Linhas" value="1" min="1" de />
+    <input type="number" id="columns" placeholder="Colunas" value="2" min="1" />
+    <button id="processGIF">Processar GIF</button>
+    <button id="executeRender">Executar Render</button>
+    <button onclick="downloadAll()">Baixar Todos</button>
+    <div id="gifContainer"></div>
+    <div id="output"></div>
+  </div>
+  <script type="module" src="/main.js"></script>
+  <script src="https://unpkg.com/omggif@1.0.10/omggif.js"></script>
+</body>
+
+</html>

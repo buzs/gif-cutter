@@ -5,20 +5,44 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite App</title>
+  <title>GIF Cutter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <div id="app">
-    <input type="file" id="gifInput" />
-    <input type="number" id="rows" placeholder="Linhas" value="3" min="1" de />
-    <input type="number" id="columns" placeholder="Colunas" value="5" min="1" />
-    <button id="processGIF">Processar GIF</button>
-    <button id="downloadAll">Baixar Todos</button>
-    <div id="loader" style="display: none;">Processando: <span id="progress">0</span>%</div>
-    <div id="gifContainer"></div>
-    <div id="output"></div>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+  <div id="app" class="container max-w-sm bg-gray-800 p-6 rounded-lg shadow-md text-center">
+    <h1 class="text-2xl font-semibold text-white mb-2">GIF Cutter</h1>
+    <p class="text-gray-400 mb-6">Divida seu GIF em várias partes facilmente</p>
+
+    <div class="mb-4 flex flex-col justify-center items-center">
+      <label for="gifInput" class="block text-gray-300 font-medium mb-1">Escolha o arquivo GIF</label>
+      <input type="file" id="gifInput" class="block max-w-lg text-gray-700 file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-blue-600 file:text-white file:rounded file:cursor-pointer text-white" />
+    </div>
+
+    <div class="flex gap-2 justify-center mb-4">
+      <div>
+        <label for="rows" class="block text-gray-300 font-medium mb-1">Linhas</label>
+        <input type="number" id="rows" placeholder="Linhas" value="3" min="1" class="w-20 px-4 py-2 border border-gray-600 bg-gray-700 text-center text-white rounded-md" />
+      </div>
+      <div>
+        <label for="columns" class="block text-gray-300 font-medium mb-1">Colunas</label>
+        <input type="number" id="columns" placeholder="Colunas" value="5" min="1" class="w-20 px-4 py-2 border border-gray-600 bg-gray-700 text-center text-white rounded-md" />
+      </div>
+    </div>
+
+    <div class="flex gap-2 justify-center mb-4">
+      <button id="processGIF" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Processar GIF</button>
+      <button id="downloadAll" class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-500 transition">Baixar Todos</button>
+    </div>
+
+    <div id="loader" class="text-blue-400 font-medium mb-4 hidden">
+      Processando: <span id="progress">0</span>%
+    </div>
+
+    <div id="gifContainer" class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4"></div>
+    <div id="output" class="mt-4"></div>
   </div>
+
   <script type="module" src="/main.js"></script>
   <script src="https://unpkg.com/omggif@1.0.10/omggif.js"></script>
 </body>

@@ -47,6 +47,7 @@ async function processGIF() {
     })
   );
 
+  generatedGIFs = [];
   const totalFrames = gif.numFrames() * columns * rows;
   let processedFrames = 0;
 

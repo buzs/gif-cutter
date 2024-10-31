@@ -6,9 +6,6 @@ import 'https://unpkg.com/@zip.js/zip.js@2.7.23/dist/zip.min.js';
 document.getElementById('processGIF').addEventListener('click', () => {
   processGIF()
 })
-document.getElementById('executeRender').addEventListener('click', () => {
-  executeRender()
-})
 document.getElementById('downloadAll').addEventListener('click', () => {
   downloadAll()
 })

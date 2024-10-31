@@ -47,6 +47,11 @@ async function processGIF() {
     })
   );
 
+  const totalFrames = gif.numFrames() * columns * rows;
+  let processedFrames = 0;
+
+  document.getElementById("loader").style.display = "block"; // Exibe o loader
+
   // Para cada posição da divisão, criaremos um novo GIF separado
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
@@ -114,6 +119,10 @@ async function processGIF() {
         const index = applyPalette(data, palette);
         gifPart.writeFrame(index, w, h, { delay, palette });
 
+        processedFrames++;
+        const progress = Math.floor((processedFrames / totalFrames) * 100);
+        document.getElementById("progress").textContent = progress; // Atualiza a porcentagem
+
         await new Promise((resolve) => setTimeout(resolve, 0));
       }
 
@@ -127,7 +136,7 @@ async function processGIF() {
   console.log("GIFs gerados:", generatedGIFs.length);
 
   // Exibe o botão de download
-  // document.getElementById("downloadButton").style.display = "block";
+  document.getElementById("loader").style.display = "none"; // Oculta o loader após o processamento
   executeRender();
 }
 
@@ -174,3 +183,4 @@ async function downloadAll() {
   // Limpa o objeto URL para liberar a memória
   URL.revokeObjectURL(zipUrl);
 }
+

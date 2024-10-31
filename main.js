@@ -153,14 +153,14 @@ async function executeRender() {
   // Estilo do contêiner para layout em grade
   output.style.display = "grid";
   output.style.gridTemplateColumns = `repeat(${columns}, auto)`;
-  output.style.gap = "5px"; // Espaçamento entre as imagens
+  output.style.gap = "9px"; // Espaçamento entre as imagens
 
   // Adiciona os GIFs como imagens <img> diretamente no contêiner
   generatedGIFs.forEach((gifData, index) => {
     const imgElement = document.createElement("img");
     imgElement.src = URL.createObjectURL(gifData);
     imgElement.alt = `GIF Part ${index + 1}`;
-    imgElement.style.width = "100%"; // Ajusta a largura para caber na coluna
+    // imgElement.style.width = "100%"; // Ajusta a largura para caber na coluna
 
     output.appendChild(imgElement); // Adiciona a imagem ao contêiner
   });
